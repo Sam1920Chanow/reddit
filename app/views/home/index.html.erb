@@ -1,0 +1,43 @@
+<h1>Sam is the jammer</h1>
+
+<head>
+<style>
+#fun {
+  width: 100px;
+  height: 50px;
+  background-color: blue;
+  border-radius: 20px;
+}
+</style>
+</head>
+
+<h3 id="createnew"><%= link_to 'New Channel', new_channel_path %></h3>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th colspan="2"></th>
+  </tr>
+
+  <% @channels.each do |channel| %>
+    <tr>
+      <td><%= channel.title %></td>
+      <td><%= link_to 'Show', channel_path(channel) %></td>
+    </tr>
+    <% end %>
+</table>
+
+<button id="fun">hello</button>
+
+<script>
+  var start = prompt("Do you want  bagel?", "do you?");
+  if (start === "yes") {
+    var walrus = prompt("How many Warli can fit in the trailer of a NA standard 18 wheeler?", "what?");
+    if (walrus === "140") {
+      alert("You is smarticle!")
+    } else {
+    }
+  } else {
+    alert("Well then your whole life is a lie and you need to sit down with your elderly aunt to figure it out.")
+  }
+</script>

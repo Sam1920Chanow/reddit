@@ -1,0 +1,19 @@
+Pages:
+	Homepage
+		-List of Channels
+		-login
+	Channel Page
+		-List of posts
+	Post Page
+		-Post question
+		-Top level questions
+		-Replies to comments
+Model Heirarchy:
+User has_many channels
+channels belongs_to homepage
+channels has_many posts
+posts belong_to channels
+posts has_many comments
+comments belong_to posts
+comments has_many replies
+replies belong_to comments
