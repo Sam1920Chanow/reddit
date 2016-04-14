@@ -5,11 +5,17 @@ class PostsController < ApplicationController
   redirect_to channel_path(@channel)
   end
 
+  def show
+    @channel = Channel.find(params[:channel_id])
+    @post = Post.find(params[:id])
+    @comments = Comment.all
+  end
+
 def destroy
-  @article = Article.find(params[:article_id])
-  @comment = @article.comments.find(params[:id])
-  @comment.destroy
-  redirect_to article_path(@article)
+  @channel = Channel.find(params[:channel_id])
+  @post = @channel.posts.find(params[:id])
+  @post.destroy
+  redirect_to channel_path(@channel)
 end
 def edit
   @post = Post.find(params[:id])
@@ -30,6 +36,6 @@ def new
 end
 private
 def post_params
-  params.require(:post).permit(:text, :title)
+  params.require(:post).permit(:text, :title).merge(user: current_user)
 end
 end

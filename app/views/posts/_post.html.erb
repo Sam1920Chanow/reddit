@@ -7,5 +7,10 @@
   <strong>Text</strong>
   <%= post.text %>
 </p>
-<%= link_to 'Edit', [:edit, @channel, post] %>
-<%= link_to 'Show Comments', [@channel, post] %>
+<button><%= link_to 'Edit', [:edit, @channel, post] %></button>
+<button><%= link_to 'Show Comments', [@channel, post] %></button>
+<% if current_user == post.user %>
+<button><%= link_to 'Destroy', channel_post_path(@channel, post),
+    method: :delete,
+    data: { confirm: 'Are you sure?' }  %></button>
+<% end %>

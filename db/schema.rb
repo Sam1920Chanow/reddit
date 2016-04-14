@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160308151206) do
+ActiveRecord::Schema.define(version: 20160407141122) do
 
   create_table "channels", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -25,7 +25,13 @@ ActiveRecord::Schema.define(version: 20160308151206) do
   create_table "comments", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "post_id"
+    t.text     "text"
+    t.integer  "user_id"
   end
+
+  add_index "comments", ["post_id"], name: "index_comments_on_post_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "posts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -33,9 +39,11 @@ ActiveRecord::Schema.define(version: 20160308151206) do
     t.integer  "channel_id"
     t.string   "title"
     t.text     "text"
+    t.integer  "user_id"
   end
 
   add_index "posts", ["channel_id"], name: "index_posts_on_channel_id"
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
   create_table "replies", force: :cascade do |t|
     t.datetime "created_at", null: false

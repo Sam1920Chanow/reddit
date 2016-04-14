@@ -11,18 +11,24 @@
 </style>
 </head>
 
-<h3 id="createnew"><%= link_to 'New Channel', new_channel_path %></h3>
+<h3 id="createnew"><button><%= link_to 'New Channel', new_channel_path %></button></h3>
 <table>
   <tr>
     <th>Title</th>
-    <th>Text</th>
+    <th>Link</th>
+    <th>Permissions<th>
     <th colspan="2"></th>
   </tr>
 
   <% @channels.each do |channel| %>
     <tr>
       <td><%= channel.title %></td>
-      <td><%= link_to 'Show', channel_path(channel) %></td>
+      <td><button><%= link_to 'Show', channel_path(channel) %></button></td>
+      <td><% if current_user === channel.user %>
+          <button><%= link_to 'Destroy', channel_path(channel),
+              method: :delete,
+              data: { confirm: 'Are you sure?' }  %>
+          <% end %> </button></td>
     </tr>
     <% end %>
 </table>

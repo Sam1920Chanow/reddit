@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
   get 'home/index'
+  get '/home/griffin/add.html', :to => redirect('/home/griffin/add.html')
   resources :channels do
-    resources :posts
+    resources :posts do
+      resources :comments
+
+    end
 
   end
 

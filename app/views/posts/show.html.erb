@@ -1,1 +1,8 @@
-<p>hello</p>
+<body>
+<h2>Comments</h2>
+<%= render @post.comments %>
+
+<h2>Add a comment:</h2>
+<button><%= link_to 'New comment', new_channel_post_comment_path(@channel, @post) %></button>
+<button><%= link_to 'Back', channel_path(@channel) %></button>
+</body>

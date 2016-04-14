@@ -27,6 +27,12 @@ class ChannelsController < ApplicationController
     render 'edit'
   end
 end
+  def destroy
+    @channel = Channel.find(params[:id])
+    @channel.destroy
+
+    redirect_to home_index_path
+  end
   private
   def channel_params
     params.require(:channel).permit(:title).merge(user: current_user)

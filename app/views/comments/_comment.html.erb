@@ -1,0 +1,10 @@
+<p>
+  <strong>Comment</strong>
+  <%= comment.text %>
+</p>
+<button><%= link_to 'Edit', [:edit, @channel, @post, comment] %></button>
+<% if current_user == comment.user %>
+<button><%= link_to 'Destroy', channel_post_comment_path(@channel, @post, comment),
+    method: :delete,
+    data: { confirm: 'Are you sure?' }  %></button>
+<% end %>

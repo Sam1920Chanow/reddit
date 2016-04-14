@@ -1,8 +1,17 @@
+<body>
 <h2>Posts</h2>
 <%= render @channel.posts %>
 
 <h2>Add a post:</h2>
-<%= link_to 'New Post', new_channel_post_path(@channel) %>
-<%= link_to 'Edit', edit_channel_path(@channel) %>
-<%= link_to 'Back', home_index_path %>
+<image id="popup" src="http://mcguffincg.com/assets/images/allstate_gmail_ads/Allstate-Gmail-Ads-Content-Image-1.jpg">
+<button><%= link_to 'New Post', new_channel_post_path(@channel) %></button>
+<input type="button" value="New Post" onclick="newAdd()">
+<button><%= link_to 'Edit', edit_channel_path(@channel) %></button>
+<button><%= link_to 'Back', home_index_path %></button>
 </body>
+
+<script>
+  function newAdd() {
+    window.location.assign("http://brogre.com");
+  }
+</script>
