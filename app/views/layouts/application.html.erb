@@ -6,9 +6,12 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-
+<center><body>
+<div id="heading">
+  <h1>Brogre Blogs R' Us</h1>
+  <button id="logout"><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></button>
+</div>
 <%= yield %>
 
-</body>
+</body></center>
 </html>

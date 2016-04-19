@@ -2,7 +2,9 @@
   <strong>Comment</strong>
   <%= comment.text %>
 </p>
+<% if current_user === comment.user %>
 <button><%= link_to 'Edit', [:edit, @channel, @post, comment] %></button>
+<% end %>
 <% if current_user == comment.user %>
 <button><%= link_to 'Destroy', channel_post_comment_path(@channel, @post, comment),
     method: :delete,

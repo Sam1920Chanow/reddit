@@ -7,7 +7,9 @@
   <strong>Text</strong>
   <%= post.text %>
 </p>
+<% if current_user === post.user %>
 <button><%= link_to 'Edit', [:edit, @channel, post] %></button>
+<% end %>
 <button><%= link_to 'Show Comments', [@channel, post] %></button>
 <% if current_user == post.user %>
 <button><%= link_to 'Destroy', channel_post_path(@channel, post),

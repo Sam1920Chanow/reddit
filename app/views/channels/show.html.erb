@@ -6,7 +6,9 @@
 <image id="popup" src="http://mcguffincg.com/assets/images/allstate_gmail_ads/Allstate-Gmail-Ads-Content-Image-1.jpg">
 <button><%= link_to 'New Post', new_channel_post_path(@channel) %></button>
 <input type="button" value="New Post" onclick="newAdd()">
+<% if current_user === @channel.user %>
 <button><%= link_to 'Edit', edit_channel_path(@channel) %></button>
+<% end %>
 <button><%= link_to 'Back', home_index_path %></button>
 </body>
 
